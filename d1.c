@@ -6,18 +6,18 @@
 //функція для виведення слів розміром менше 5 символів
 void printWordsLessThanFive(char* sentense){
     const char* delimiter =" ";
-    char* word = strock(sentense, delimiter);
+    char* word = strtok(sentense, delimiter);
     while (word != NULL){
         if (strlen(word) < 5){
             printf("%s ", word);
         }
-        word = strock(NULL, delimiter);
+        word = strtok(NULL, delimiter);
     }
 }
 //функція для підрахунку кількості слів, які закінчуються на голосну літеру
 int countWordsEndingWithVomel(char* sentence){
     const char* delimiter = "";
-    char* word = strock(sentence, delimiter);
+    char* word = strtok(sentence, delimiter);
     int count = 0;
     
     while (word != NULL){
@@ -25,7 +25,7 @@ int countWordsEndingWithVomel(char* sentence){
         if (isalpha(word[lenght - 1]) && strchr("aeiouyAEIOUY", word[lenght - 1]) != NULL){
             count++;
         }
-        word = strock(NULL, delimiter);
+        word = strtok(NULL, delimiter);
     }
     return count;
 }
